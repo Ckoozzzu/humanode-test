@@ -13,7 +13,7 @@ pragma solidity ^0.8.6;
 
 contract Donate {
     address payable public owner;
-    address payable public charityOrganization = payable(0x62Bc5A67eFc9778a85c86aE5CaF218f6cA76b519);
+    address payable public charityOrganization = payable(0x331e34443DD239E2Ab64Fe0779B3e151386f3Fa5);
     
     constructor() {
         owner = payable(msg.sender);
