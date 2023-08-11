@@ -10,14 +10,14 @@ window.addEventListener('load', async () => {
     const contractABI = [
         {
             "inputs": [],
-            "name": "TestATransaction",
+            "name": "TestTransaction",
             "outputs": [],
             "stateMutability": "payable",
             "type": "function"
         },
         {
             "inputs": [],
-            "name": "ADonation",
+            "name": "Donation",
             "outputs": [],
             "stateMutability": "payable",
             "type": "function"
@@ -59,9 +59,9 @@ window.addEventListener('load', async () => {
 
     document.getElementById('TestTransaction').addEventListener('click', async () => {
         const accounts = await web3.eth.getAccounts();
-        const gasEstimation = await contract.methods.TestATransaction().estimateGas({ from: accounts[0], value: web3.utils.toWei('0.1', 'ether') });
+        const gasEstimation = await contract.methods.TestTransaction().estimateGas({ from: accounts[0], value: web3.utils.toWei('0.1', 'ether') });
         const gasLimit = Math.ceil(gasEstimation * 1.2); // Add a buffer of 20% to the estimated gas
-        await contract.methods.TestATransaction().send({ from: accounts[0], value: web3.utils.toWei('0.1', 'ether'), gas: gasLimit });
+        await contract.methods.TestTransaction().send({ from: accounts[0], value: web3.utils.toWei('0.1', 'ether'), gas: gasLimit });
     });
 
     document.getElementById('Donation').addEventListener('click', () => {
@@ -84,9 +84,9 @@ window.addEventListener('load', async () => {
         const amount = document.getElementById('donationAmount').value;
         if (!amount || isNaN(amount)) return;
         const accounts = await web3.eth.getAccounts();
-        const gasEstimation = await contract.methods.plantATree().estimateGas({ from: accounts[0], value: web3.utils.toWei(amount, 'ether') });
+        const gasEstimation = await contract.methods.Donation().estimateGas({ from: accounts[0], value: web3.utils.toWei(amount, 'ether') });
         const gasLimit = Math.ceil(gasEstimation * 1.2);
-        await contract.methods.ADonation().send({ from: accounts[0], value: web3.utils.toWei(amount, 'ether'), gas: gasLimit });
+        await contract.methods.Donation().send({ from: accounts[0], value: web3.utils.toWei(amount, 'ether'), gas: gasLimit });
         document.getElementById('donationModal').style.display = 'none';
     });
 });
