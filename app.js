@@ -10,14 +10,14 @@ window.addEventListener('load', async () => {
     const contractABI = [
         {
             "inputs": [],
-            "name": "buyMeACoffee",
+            "name": "TestATransaction",
             "outputs": [],
             "stateMutability": "payable",
             "type": "function"
         },
         {
             "inputs": [],
-            "name": "plantATree",
+            "name": "ADonation",
             "outputs": [],
             "stateMutability": "payable",
             "type": "function"
