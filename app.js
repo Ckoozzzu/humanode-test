@@ -57,14 +57,14 @@ window.addEventListener('load', async () => {
     const contractAddress = "0xb39A5E7A6eCaC69Fc186a6C2EF0a424fc8d5412b";
     const contract = new web3.eth.Contract(contractABI, contractAddress);
 
-    document.getElementById('buyCoffee').addEventListener('click', async () => {
+    document.getElementById('TestTransaction').addEventListener('click', async () => {
         const accounts = await web3.eth.getAccounts();
-        const gasEstimation = await contract.methods.buyMeACoffee().estimateGas({ from: accounts[0], value: web3.utils.toWei('0.1', 'ether') });
+        const gasEstimation = await contract.methods.TestATransaction().estimateGas({ from: accounts[0], value: web3.utils.toWei('0.1', 'ether') });
         const gasLimit = Math.ceil(gasEstimation * 1.2); // Add a buffer of 20% to the estimated gas
-        await contract.methods.buyMeACoffee().send({ from: accounts[0], value: web3.utils.toWei('0.1', 'ether'), gas: gasLimit });
+        await contract.methods.TestATransaction().send({ from: accounts[0], value: web3.utils.toWei('0.1', 'ether'), gas: gasLimit });
     });
 
-    document.getElementById('plantTree').addEventListener('click', () => {
+    document.getElementById('Donation').addEventListener('click', () => {
         // Show the modal when the "Plant a Tree" button is clicked
         const modal = document.getElementById('donationModal');
         const closeButton = document.getElementsByClassName('close-button')[0];
@@ -86,7 +86,7 @@ window.addEventListener('load', async () => {
         const accounts = await web3.eth.getAccounts();
         const gasEstimation = await contract.methods.plantATree().estimateGas({ from: accounts[0], value: web3.utils.toWei(amount, 'ether') });
         const gasLimit = Math.ceil(gasEstimation * 1.2);
-        await contract.methods.plantATree().send({ from: accounts[0], value: web3.utils.toWei(amount, 'ether'), gas: gasLimit });
+        await contract.methods.ADonation().send({ from: accounts[0], value: web3.utils.toWei(amount, 'ether'), gas: gasLimit });
         document.getElementById('donationModal').style.display = 'none';
     });
 });
